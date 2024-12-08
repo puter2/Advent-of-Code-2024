@@ -1,4 +1,4 @@
-class Solver:
+class Solver2:
 
     def solve(self,data):
         res = 0
@@ -21,38 +21,29 @@ class Solver:
                 self.nextConfig(configuration)
         return self.testNoOrder(target,nums,configuration)
     
+    
+            
     def nextConfig(self, configuration):
         for i in range(len(configuration)):
             if configuration[i] == '*':
+                configuration[i] = '|'
+                for j in range(i):
+                    configuration[j] = '*'
+                return
+            if configuration[i] == '|':
                 configuration[i] = '+'
                 for j in range(i):
                     configuration[j] = '*'
                 return
-            
 
-    def test(self, target, nums, configuration):
-        i = 0
-        tmp = nums.copy()
-        tmp_conf = configuration.copy()
-        stop = len(configuration)
-        while i<stop:
-            #print(i,stop)
-            if tmp_conf[i] == '*':
-                tmp_conf.pop(i)
-                tmp[i] = tmp[i] * tmp[i + 1]
-                tmp.pop(i+1)
-                stop -= 1
-            else:
-                i += 1
-        #     print(tmp)
-        # print(sum(tmp))
-        return target == sum(tmp)
                 
     def testNoOrder(self, target, nums, configuration):
         res = nums[0]
         for i in range(len(configuration)):
             if configuration[i] == '*':
                 res *= nums[i + 1]
+            elif configuration[i] == '|':
+                res = int(str(res)+str(nums[i+1]))
             else:
                 res += nums[i + 1]
         # print(nums, target, res, configuration)
