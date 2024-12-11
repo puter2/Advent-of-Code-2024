@@ -16,10 +16,14 @@ class Solver:
         res = set()
         while reached:
             curr = reached.pop(0)
+            # print(curr)
             if self.map.getVal(curr) == 9:
                 res.add(curr)
             else:
                 for dx, dy in directions:
+                    # print(self.map.canMove(curr, (curr[0] + dx, curr[1] + dy)),
+                    #       curr, (curr[0] + dx, curr[1] + dy),
+                    #       self.map.getVal(curr), self.map.getVal((curr[0] + dx, curr[1] + dy)),)
                     if self.map.canMove(curr, (curr[0] + dx, curr[1] + dy)):
                         reached.append((curr[0] + dx, curr[1] + dy))
         return len(res)

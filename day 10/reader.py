@@ -25,7 +25,7 @@ class Map:
         return res
     
     def canMove(self, start: tuple, end: tuple) -> bool:
-        if self.getVal(start) and self.getVal(end):
+        if self.getVal(start) != None and self.getVal(end) != None:
             return self.getVal(start) == self.getVal(end) - 1
         return False
     
