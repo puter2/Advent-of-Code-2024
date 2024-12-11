@@ -11,4 +11,4 @@ print(r.canMove((0,0), (0,1)))
 s = Solver(r)
 
 print(s.evaluatePath((0,0)))
-print(s.part1())
+print(s.part2())
