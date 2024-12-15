@@ -16,4 +16,9 @@ class Solver:
         while q:
             cur = q.pop(0)
             for dx, dy in directions:
-                pass
+                new_x = cur[1] + dx
+                new_y = cur[0] + dy
+                if -1 < new_x < len(grid[0]) and -1 < new_y < len(grid) and grid[new_x][new_y] == symbol and (new_x,new_y) not in region:
+                    q.append((new_x,new_y))
+                    region.append((new_x,new_y))
+        return region                
