@@ -14,28 +14,24 @@ class Solver:
                 positions[pos] += 1
             else:
                 positions[pos] = 1
-        return positions
+        return positions     
 
-    def cornerLenght(self, tab, x, y):
-        lenght_y = 0
-        for i in range(x,len(tab)):
-            if tab[i][y] == '0':
-                lenght_y += 1
-            else:
-                break
-        lenght_x = 0
-        for i in range(y,len(tab[0])):
-            if tab[x][i] == '0':
-                lenght_x += 1
-            else:
-                break
-        return min(lenght_x, lenght_y)
+    def isBlob(self,tab,x,y):
+        for i in range(x,x+8):
+            for j in range(y, y+8):
+                if tab[i][j] != '0':
+                    return False
+        return True
 
-    def findSquare(self, tab):
-        for row in range(len(tab)):
-            for col in range(len(tab[0])):
-                if tab[row][col] == '0':
-                    pass        
+    def findBlob(self,tab):
+        '''
+        find if table has an 7x7 block of 0's
+        '''
+        for i in range(len(tab)-8):
+            for j in range(len(tab[0])-8):
+                if self.isBlob(tab, i, j):
+                    return True
+        return False
     
     def show(self, data, time, width, height):
         positions = self.calculatePositions(data, time, width, height)
@@ -47,10 +43,12 @@ class Solver:
         # res[0][1] = '0'
         # for row in res:
         #     print(''.join(row))
-        with open('day 14\\outpus.txt','w') as file:
-            for row in res:
-                file.write(''.join(row))
-                file.write('\n')
+        if self.findBlob(res):
+            with open('day 14\\outpus.txt','w') as file:
+                for row in res:
+                    file.write(''.join(row))
+                    file.write('\n')
+            input()
 
 
     def part1(self, data, time, width, height):

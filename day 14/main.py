@@ -6,7 +6,7 @@ r = Reader('day 14\\input.txt')
 #print(r.getData())
 i=0
 while True:
-    input()
+    # input()
     Solver().show(r.getData(), i, 101, 103)
     i += 1
     print(i)
