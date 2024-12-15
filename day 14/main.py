@@ -3,8 +3,15 @@ from reader import Reader
 from solver import Solver
 
 r = Reader('day 14\\input.txt')
-print(r.getData())
-print(Solver().part1(r.getData(), 100, 101, 103))
+#print(r.getData())
+i=0
+while True:
+    input()
+    Solver().show(r.getData(), i, 101, 103)
+    i += 1
+    print(i)
+
+# print(Solver().part1(r.getData(), 100, 101, 103))
 
 # a = Robot()
 # a.setPos(2,4)
