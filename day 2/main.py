@@ -5,7 +5,8 @@ a = Reader()
 data = a.read('day 2\\input.txt')
 #print(data)
 b = Solver()
-print(b.part1(data=data))
+#print(b.part1(data=data))
+print(b.part2(data))
 
 #test
 # print(b.part1(
