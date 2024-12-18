@@ -6,6 +6,12 @@ class Game:
         self.target = target
         self.reset()
 
+    def getA(self):
+        return self.A
+    
+    def getB(self):
+        return self.B
+
     def reset(self):
         self.claw_x = self.claw_y = 0
 
@@ -25,3 +31,6 @@ class Game:
     
     def checkWin(self):
         return self.getTarget() == self.getPos()
+    
+    def correctTarget(self):
+        self.target = (self.target[0] + 10000000000000, self.target[1] + 10000000000000)
