@@ -18,8 +18,13 @@ def next_comb(comb):
         comb[i] = -9
     comb[pos] += 1
 
-def get_bananas_from_prices(comb, prices):
-    pass
+def buy_bananas(comb, prices):
+    curr = prices[:3]
+    for i in range(len(prices) - 4):
+        if comb == curr:
+            return prices[i+3]
+        else:
+            pass
     
 combo = [-9, -9, -9, -9]
 
