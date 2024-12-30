@@ -25,13 +25,13 @@ def mix(number, secret):
 def prune(number):
     return number % 16777216
 
-# import fileinput
+import fileinput
 # secrets = [int(num.strip()) for num in fileinput.input('day 22\\input.txt')]
 # print(secrets)
-secrets = [1, 10, 100, 2024]
+secrets = [1, 2, 3, 2024]
 prices = []
 last = []
-with open('day 22\\prices.txt', 'w') as file:
+with open('day 22\\pricestest.txt', 'w') as file:
     for secret in secrets:
         cur = secret
         prices.append(cur % 10)
