@@ -104,3 +104,19 @@ class Computer:
     def cdv(self, operand):
         den = 2 ** self.combo_val(operand)
         self.C = int(self.get_A() / den)
+
+    def reset(self):
+        self.A, self.B, self.C = 0, 0, 0
+        self.pnt = 0
+        self.output = []
+
+    def find_A(self):
+        cur = 35184372088832
+        while self.output != self.program:
+            self.reset()
+            self.A = cur
+            if self.A % 100000 == 0:
+                print(f'checking: {self.A}')
+            self.run()
+            cur += 1
+        return cur-1
