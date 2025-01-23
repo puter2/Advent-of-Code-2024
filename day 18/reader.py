@@ -11,7 +11,7 @@ class Reader:
         if bites == -1 or bites > len(self.obstacles):
             bites = len(self.obstacles)
         for i in range(bites):
-            print(self.obstacles[i])
+            # print(self.obstacles[i])
             self.map[int(self.obstacles[i].split(',')[-1])][int(self.obstacles[i].split(',')[0])] = '#'
     
     def display_map(self):

@@ -57,7 +57,7 @@ class Solver:
             for j in range(size):
                 if self.graph[i][j] != None:
                     unvisited.append(self.graph[i][j])
-        print(unvisited)
+        # print(unvisited)
         while unvisited:
             cur = unvisited.pop(self.find_next(unvisited))
             if cur.best_time == float('inf'):
