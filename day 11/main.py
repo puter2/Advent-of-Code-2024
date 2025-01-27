@@ -9,9 +9,9 @@ for val in r.getData():
 
 #print([stone.getVal() for stone in stones])
 tmp = []
-times = 20
+times = 75
 # print(type(Stone(1).blink()))
-stones = [Stone(0)]
+# stones = [Stone(0)]
 for i in range(times):
     print(i)
     tmp = []
@@ -20,6 +20,6 @@ for i in range(times):
             tmp.append(res)
     stones = tmp.copy()
     #print([stone.getVal() for stone in stones])
-print([stone.getVal() for stone in stones])
+#print([stone.getVal() for stone in stones])
 print(len(stones))
 print(2**75)

@@ -27,11 +27,25 @@ class Graph:
             for vert in tmp_dic[key]:
                 self.vertices[key].make_neighbors(self.vertices[vert])
 
-    def chech_if_triangle(self, vert1, vert2, vert3):
+    def check_if_triangle(self, vert1, vert2, vert3):
         v1, v2, v3 = self.vertices[vert1], self.vertices[vert2], self.vertices[vert3]
         if v1 in v2.neighbors and v1 in v3.neighbors and v2 in v3.neighbors:
             return True
         else:
             return False
+        
+    def check_if_clique(self, verts):
+        for i in range(len(verts)):
+            cur = self.vertices[verts[i]]
+            for j in range(i+1, len(verts)):
+                new = self.vertices[verts[j]]
+                if cur not in new.neighbors:
+                    return False
+        return True
 
-
+    def find_biggest_clique(self):
+        biggest = []
+        for vert in self.vertices.keys():
+            for i in range(len(self.vertices[vert].neighbors)):
+                tmp = [vert, self.vertices]
+        
