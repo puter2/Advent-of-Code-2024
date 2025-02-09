@@ -6,20 +6,20 @@ day5 - done done
 day6 - done done
 day7 - done done
 day8 - done done
-day9 - done WIP
+day9 - done done
 day10 - done done
-day11 - done WIP
+day11 - done done
 day12 - WIP
 day13 - done WIP
 day14 - done done
 day15 - done 
 day16 -
 day17 - done done by hand
-day18 -
+day18 - done done
 day19 -
 day20 -
 day21 -
 day22 - done done
-day23 - 
+day23 - done done brute force
 day24 - 
 day25 - done

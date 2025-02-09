@@ -44,8 +44,27 @@ class Graph:
         return True
 
     def find_biggest_clique(self):
-        biggest = []
-        for vert in self.vertices.keys():
-            for i in range(len(self.vertices[vert].neighbors)):
-                tmp = [vert, self.vertices]
+        self.best = set()
+        for vert in list(self.vertices.values()):
+            print(vert.name)
+            cur = set()
+            cur.add(vert)
+            self.add_vert(cur, vert.neighbors)
         
+    def add_vert(self, curr_verts : set, neighbors : set):
+        if not neighbors:
+            return curr_verts
+        #print('b')
+        for vert in neighbors:
+            #print(vert.name)
+            new = curr_verts.copy()
+            new.add(vert)
+            new_neigh = neighbors.copy()
+            new_neigh = new_neigh.intersection(vert.neighbors)
+            res = self.add_vert(new, new_neigh)
+            #print(res)
+            if len(res) > len(self.best):
+                self.best = res.copy()
+        return curr_verts
+
+#'df', 'kg', 'la', 'mp', 'pb', 'qh', 'sk', 'th', 'vn', 'ww', 'xp', 'yp', 'zk'

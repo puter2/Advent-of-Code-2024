@@ -1,7 +1,7 @@
 from reader import Reader
 from graph import Graph
 
-R = Reader('day 23\\test.txt')
+R = Reader('day 23\\input.txt')
 
 G = Graph(R.edges)
 #part1
@@ -28,4 +28,13 @@ de-co
 ta-ka
 de-ta
 ka-de'''
-print(G.check_if_clique(['ka','co','ta','de']))
+#print(G.check_if_clique(['ka','co','ta','de']))
+G.find_biggest_clique()
+print(G.best)
+res = []
+for vert in G.best:
+    print(vert.name)
+    res.append(vert.name)
+
+res = sorted(res)
+print(res)
