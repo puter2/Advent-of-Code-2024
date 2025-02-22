@@ -1,24 +1,41 @@
 from map import Map
+directoins = [
+    (1,0),
+    (0,1),
+    (-1,0),
+    (0,-1)
+]
+def divide_into_regions(m : map):
+        unvisited = []
+        grid = m.grid.copy()
+        print(grid)
+        for x in range(len(grid[0])):
+            for y in range(len(grid)):
+                unvisited.append((x,y))
+        regions = []
+        while unvisited:
+            cur = unvisited.pop()
+            q = [cur]
+            zone = {cur}
+            while q:
+                cur2 = q.pop(0)
+                for dx, dy in directoins:
+                    new = (cur2[0]+dx, cur2[1]+dy)
+                    if new in unvisited and grid[cur[1]][cur[0]] == grid[new[1]][new[0]]:
+                        unvisited.remove(new)
+                        zone.add(new)
+                        q.append(new)
+            regions.append(zone)
+            #print(regions)
+        
+        return regions
 
-class Solver:
+def calculate_fence(zone : list):
+    fence = []
+    for lot in zone:
+        for dx, dy in directoins:
+            new = (lot[0]+dx, lot[1]+dy)
+            if new not in zone:
+                fence.append(new)
+    return fence
 
-    def findRegion(self, map : Map, x : int, y : int):
-        grid = map.getGrid()
-        directions = [
-                    (0,1),
-                    (1,0),
-                    (0,-1),
-                    (-1,0)
-                ]
-        symbol = grid[x][y]
-        region  = [(x,y)]
-        q = [(x,y)]
-        while q:
-            cur = q.pop(0)
-            for dx, dy in directions:
-                new_x = cur[1] + dx
-                new_y = cur[0] + dy
-                if -1 < new_x < len(grid[0]) and -1 < new_y < len(grid) and grid[new_x][new_y] == symbol and (new_x,new_y) not in region:
-                    q.append((new_x,new_y))
-                    region.append((new_x,new_y))
-        return region                
